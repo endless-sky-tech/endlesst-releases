@@ -28,13 +28,15 @@ CLI 最新正式版为 [3.1.4](https://github.com/endless-sky-tech/endlesst-rele
 
 ## Terminal 下载
 
-目前提供原有 3.1.1 安装包，保持原始字节：
+Windows 最新便携版为 3.1.5，包含账号 / 会员侧边栏和 GitHub 更新渠道；Linux 原生包保持 3.1.1：
 
-- [Windows x64 便携版](https://github.com/endless-sky-tech/endlesst-releases/releases/download/v3.1.1/Endless.Terminal-Portable-3.1.1-x64.exe)
+- [Windows x64 便携版](https://github.com/endless-sky-tech/endlesst-releases/releases/download/v3.1.5/Endless.Terminal-Portable-3.1.5-x64.exe)
 - [Linux AArch64 原生包](https://github.com/endless-sky-tech/endlesst-releases/releases/download/v3.1.1/endlesst-terminal-3.1.1-linux-aarch64.tar.gz)
 - [全部发行版与校验文件](https://github.com/endless-sky-tech/endlesst-releases/releases)
 
-Terminal 侧边栏“账号 / 会员”和新下载渠道的源码已完成并验证；Windows EXE 尚未重新构建，3.1.1 包不含新侧边栏。
+Terminal 侧边栏“账号 / 会员”统一提供注册、登录和当前设备绑定入口。Windows 回归测试、账号绑定页面与实际打包程序启动验收已通过，匿名下载已校验大小和 SHA-256。
+
+旧 OSS 渠道的 Windows 3.1.1 首次升级时，请直接下载上述新版 EXE，退出旧程序后运行新版；用户目录中的配置继续沿用。新版可在 Devices → 版本更新下载后续版本。旧版附件保留，不覆盖。
 
 会员页：<https://182.92.195.68/account/>。购买暂未开放。
 
