@@ -1,15 +1,30 @@
 # Endless Terminal 下载
 
-此仓库提供 Endless Terminal CLI、Windows 便携版和 Linux AArch64 安装包。
+CLI、Windows Terminal 和 Linux AArch64 原生服务的正式版本均为 **3.1.18**。安装包公开下载，源码仓库保持私有。使用免费 GitHub Releases 渠道，历史版本附件保留。
 
-## CLI 安装
+| 目标 | 下载 |
+|---|---|
+| Windows x64 便携版 | [Endless Terminal 3.1.18](https://github.com/endless-sky-tech/endlesst-releases/releases/download/v3.1.18/Endless.Terminal-Portable-3.1.18-x64.exe) |
+| Linux AArch64 原生服务 | [3.1.18 压缩包](https://github.com/endless-sky-tech/endlesst-releases/releases/download/v3.1.18/endlesst-terminal-3.1.18-linux-aarch64.tar.gz) |
+| CLI 通用 npm 包（Node.js 22+） | [3.1.18 tarball](https://github.com/endless-sky-tech/endlesst-releases/releases/download/v3.1.18/endlesst-cli-3.1.18.tgz) |
 
-需要 Node.js 22 或以上版本和 npm。
+[全部正式附件与 SHA-256 校验](https://github.com/endless-sky-tech/endlesst-releases/releases/tag/v3.1.18)。CLI 安装与更新使用 `latest.json`，Windows 更新使用 `terminal.json`，均位于最新发行版。
+
+## 注册与登录
+
+在 [云端注册页](https://182.92.195.68/account/?register=1) 填写账号、密码与确认密码，注册在同页完成。随后在 Terminal 侧边栏输入账号和密码登录，当前设备自动加入“我的设备”，默认界面展示设备名称和在线状态。注册在网站完成，Terminal 只登录；不需要填写 deviceId 或配对码。
+
+本机功能无需注册。启用免费连接后，游客每台设备每月有 100 MiB 中继；注册免费账号每月 1 GiB，均为 1 台设备、1 路并发，P2P 不计中继流量。额度满时仍可登录，不自动替换原设备；退出本机登录保留云端设备归属，解绑在账号中心操作。
+
+正式支付和购买入口保持关闭，尚未确定正式价格或开通商户。
+
+## CLI 安装和升级
 
 Linux / macOS：
 
 ```sh
 curl -fsSL https://github.com/endless-sky-tech/endlesst-releases/releases/latest/download/install.sh | sh
+endlesst-cli update
 ```
 
 Windows PowerShell：
@@ -18,49 +33,20 @@ Windows PowerShell：
 irm https://github.com/endless-sky-tech/endlesst-releases/releases/latest/download/install.ps1 | iex
 ```
 
-新版升级：`endlesst-cli update`。从旧 OSS 渠道安装的 CLI，首次升级请指定新渠道：
+仍使用旧 OSS 渠道的 CLI，首次升级指定新的下载渠道：
 
 ```sh
 ENDLESST_RELEASE_BASE=https://github.com/endless-sky-tech/endlesst-releases/releases endlesst-cli update
 ```
 
-CLI 最新正式版为 [3.1.16](https://github.com/endless-sky-tech/endlesst-releases/releases/tag/v3.1.16)，支持会员 `hub login`，所有设备连接统一经 Hub 使用 deviceId，包括同机 CLI。
+旧 OSS Windows Terminal 首次迁移请直接下载上方 EXE，退出旧程序再运行新版；后续通过 Terminal 的版本更新入口升级。设备身份、访问秘钥与注册凭据继续沿用。
 
-## Terminal 下载
-
-Windows 最新便携版为 3.1.17，Linux AArch64 原生包为 3.1.14；两者均支持游客免费连接、账号接管和新版 Hub 协议：
-
-- [Windows x64 便携版](https://github.com/endless-sky-tech/endlesst-releases/releases/download/v3.1.17/Endless.Terminal-Portable-3.1.17-x64.exe)
-- [Linux AArch64 原生包](https://github.com/endless-sky-tech/endlesst-releases/releases/download/v3.1.14/endlesst-terminal-3.1.14-linux-aarch64.tar.gz)
-- [全部发行版与校验文件](https://github.com/endless-sky-tech/endlesst-releases/releases)
-
-Terminal 侧边栏“账号 / 会员”统一提供注册、登录和当前设备绑定入口。Windows 回归测试、账号绑定页面与实际打包程序启动验收已通过，匿名下载已校验大小和 SHA-256。
-
-旧 OSS 渠道的 Windows 3.1.1 首次升级时，请直接下载上述新版 EXE，退出旧程序后运行新版；用户目录中的配置继续沿用。新版可在 Devices → 版本更新下载后续版本。旧版附件保留，不覆盖。
-
-会员页：<https://182.92.195.68/account/>。购买暂未开放。
-
-## 按设备 ID 连接
-
-无需注册：先在 Terminal 账号侧边栏点击“启用免费连接”，从本机配对页面获取设备 ID 与访问秘钥，再连接：
+CLI 连接仍统一经 Hub，已登录账号可以按设备名称配对并保存短名称。设备访问秘钥位于 Terminal 的高级连接设置：
 
 ```sh
-endlesst-cli hub add --name cloud --official
-endlesst-cli hub connect --device <deviceId> --hub cloud --token-prompt
-endlesst-cli doctor --device <deviceId> --hub cloud
+endlesst-cli hub login --name cloud --official
+endlesst-cli hub connect --device-name "办公室电脑" --hub cloud --as office --token-prompt
+endlesst-cli doctor --device office
 ```
 
-账号登录与设备访问秘钥独立。CLI 3.1.3 起不接受 Terminal 地址直连、`--server` 或本机自动发现；旧直连配置需要清理后重新按 Hub 配对。CLI 3.1.16、Windows 3.1.17、Linux AArch64 3.1.14 使用 Hub 协议 5，旧版 CLI 和 Terminal 需要一起升级，已有设备 ID、配置和注册凭据保留。
-
-注册后，在 Terminal 侧边栏点击“绑定当前设备”，到账号页登录并确认接管。现有设备 ID、秘钥、配置和正在运行的连接保留；以后用同一账号登录，原 CLI 设备配置继续沿用：
-
-```sh
-endlesst-cli hub login --name cloud
-endlesst-cli hub account --hub cloud --json
-```
-
-免费额度：游客每台设备每月 100 MiB 中继，注册免费账号每月 1 GiB；均为 1 台设备、1 路并发。按 UTC 自然月统计双向中继载荷，P2P 直连不计中继流量。额度用完后限制新中继连接，现有连接继续运行并计量，可等待下月恢复或使用 P2P。需要更多设备、并发或流量时会提示更高额度；正式价格尚未确定，购买和支付继续关闭。
-
-CLI `doctor --json` 现在显示实际通道、P2P 尝试次数、回落原因、建连耗时、RPC 延迟及中继额度。三端采用 Hub 协议 5，旧 CLI 和 Terminal 需要同步升级，设备 ID、访问秘钥和注册凭据保留。正在运行旧常驻连接时，先用旧 CLI 执行 `endlesst-cli hub daemon stop`，升级后再 `endlesst-cli hub daemon start`。Hub 已增加连接与中继用量监控，暂不设置金额预算或额外总流量限制。现有免费额度保持，价格和支付继续关闭。新版经过 Linux/Windows 回归、八组浏览器、实际 Windows 便携版和 AArch64 QEMU 验收；串口、HID、视频使用硬件 fixture。
-
-CLI 3.1.16 与 Windows Terminal 3.1.17 修复 P2P 短连接漏记成功和未完成握手的通道退出等待，保留原版附件。真实 ECS 游客与注册账号的两次 P2P 均正确计入成功，注册接管不打断现有命令。CLI 支持匿名安装及旧版升级；Linux AArch64 保持经过实际发布二进制 QEMU 验收的 3.1.14。
+本版通过 Linux/Windows 自动回归、八组浏览器验收、真实 Windows 打包程序两次启动退出、AArch64 二进制 QEMU 验收及真实 ECS 注册登录与自动绑定验证。硬件验收使用串口、HID、视频夹具；正式支付待商户和定价就绪后另行验收。
