@@ -24,13 +24,13 @@ irm https://github.com/endless-sky-tech/endlesst-releases/releases/latest/downlo
 ENDLESST_RELEASE_BASE=https://github.com/endless-sky-tech/endlesst-releases/releases endlesst-cli update
 ```
 
-CLI 最新正式版为 [3.1.4](https://github.com/endless-sky-tech/endlesst-releases/releases/tag/v3.1.4)，支持会员 `hub login`，所有设备连接统一经 Hub 使用 deviceId，包括同机 CLI。
+CLI 最新正式版为 [3.1.7](https://github.com/endless-sky-tech/endlesst-releases/releases/tag/v3.1.7)，支持会员 `hub login`，所有设备连接统一经 Hub 使用 deviceId，包括同机 CLI。
 
 ## Terminal 下载
 
-Windows 最新便携版为 3.1.5，包含账号 / 会员侧边栏和 GitHub 更新渠道；Linux 原生包保持 3.1.1：
+Windows 最新便携版为 3.1.8，包含账号 / 会员侧边栏和 GitHub 更新渠道；Linux 原生包保持 3.1.1：
 
-- [Windows x64 便携版](https://github.com/endless-sky-tech/endlesst-releases/releases/download/v3.1.5/Endless.Terminal-Portable-3.1.5-x64.exe)
+- [Windows x64 便携版](https://github.com/endless-sky-tech/endlesst-releases/releases/download/v3.1.8/Endless.Terminal-Portable-3.1.8-x64.exe)
 - [Linux AArch64 原生包](https://github.com/endless-sky-tech/endlesst-releases/releases/download/v3.1.1/endlesst-terminal-3.1.1-linux-aarch64.tar.gz)
 - [全部发行版与校验文件](https://github.com/endless-sky-tech/endlesst-releases/releases)
 
