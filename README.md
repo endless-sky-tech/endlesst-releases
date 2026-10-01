@@ -24,13 +24,13 @@ irm https://github.com/endless-sky-tech/endlesst-releases/releases/latest/downlo
 ENDLESST_RELEASE_BASE=https://github.com/endless-sky-tech/endlesst-releases/releases endlesst-cli update
 ```
 
-CLI 最新正式版为 [3.1.12](https://github.com/endless-sky-tech/endlesst-releases/releases/tag/v3.1.12)，支持会员 `hub login`，所有设备连接统一经 Hub 使用 deviceId，包括同机 CLI。
+CLI 最新正式版为 [3.1.16](https://github.com/endless-sky-tech/endlesst-releases/releases/tag/v3.1.16)，支持会员 `hub login`，所有设备连接统一经 Hub 使用 deviceId，包括同机 CLI。
 
 ## Terminal 下载
 
-Windows 最新便携版为 3.1.13，Linux AArch64 原生包为 3.1.14；两者均支持游客免费连接、账号接管和新版 Hub 协议：
+Windows 最新便携版为 3.1.17，Linux AArch64 原生包为 3.1.14；两者均支持游客免费连接、账号接管和新版 Hub 协议：
 
-- [Windows x64 便携版](https://github.com/endless-sky-tech/endlesst-releases/releases/download/v3.1.13/Endless.Terminal-Portable-3.1.13-x64.exe)
+- [Windows x64 便携版](https://github.com/endless-sky-tech/endlesst-releases/releases/download/v3.1.17/Endless.Terminal-Portable-3.1.17-x64.exe)
 - [Linux AArch64 原生包](https://github.com/endless-sky-tech/endlesst-releases/releases/download/v3.1.14/endlesst-terminal-3.1.14-linux-aarch64.tar.gz)
 - [全部发行版与校验文件](https://github.com/endless-sky-tech/endlesst-releases/releases)
 
@@ -50,7 +50,7 @@ endlesst-cli hub connect --device <deviceId> --hub cloud --token-prompt
 endlesst-cli doctor --device <deviceId> --hub cloud
 ```
 
-账号登录与设备访问秘钥独立。CLI 3.1.3 起不接受 Terminal 地址直连、`--server` 或本机自动发现；旧直连配置需要清理后重新按 Hub 配对。CLI 3.1.12、Windows 3.1.13、Linux AArch64 3.1.14 使用 Hub 协议 5，旧版 CLI 和 Terminal 需要一起升级，已有设备 ID、配置和注册凭据保留。
+账号登录与设备访问秘钥独立。CLI 3.1.3 起不接受 Terminal 地址直连、`--server` 或本机自动发现；旧直连配置需要清理后重新按 Hub 配对。CLI 3.1.16、Windows 3.1.17、Linux AArch64 3.1.14 使用 Hub 协议 5，旧版 CLI 和 Terminal 需要一起升级，已有设备 ID、配置和注册凭据保留。
 
 注册后，在 Terminal 侧边栏点击“绑定当前设备”，到账号页登录并确认接管。现有设备 ID、秘钥、配置和正在运行的连接保留；以后用同一账号登录，原 CLI 设备配置继续沿用：
 
@@ -62,3 +62,5 @@ endlesst-cli hub account --hub cloud --json
 免费额度：游客每台设备每月 100 MiB 中继，注册免费账号每月 1 GiB；均为 1 台设备、1 路并发。按 UTC 自然月统计双向中继载荷，P2P 直连不计中继流量。额度用完后限制新中继连接，现有连接继续运行并计量，可等待下月恢复或使用 P2P。需要更多设备、并发或流量时会提示更高额度；正式价格尚未确定，购买和支付继续关闭。
 
 CLI `doctor --json` 现在显示实际通道、P2P 尝试次数、回落原因、建连耗时、RPC 延迟及中继额度。三端采用 Hub 协议 5，旧 CLI 和 Terminal 需要同步升级，设备 ID、访问秘钥和注册凭据保留。正在运行旧常驻连接时，先用旧 CLI 执行 `endlesst-cli hub daemon stop`，升级后再 `endlesst-cli hub daemon start`。Hub 已增加连接与中继用量监控，暂不设置金额预算或额外总流量限制。现有免费额度保持，价格和支付继续关闭。新版经过 Linux/Windows 回归、八组浏览器、实际 Windows 便携版和 AArch64 QEMU 验收；串口、HID、视频使用硬件 fixture。
+
+CLI 3.1.16 与 Windows Terminal 3.1.17 修复 P2P 短连接漏记成功和未完成握手的通道退出等待，保留原版附件。真实 ECS 游客与注册账号的两次 P2P 均正确计入成功，注册接管不打断现有命令。CLI 支持匿名安装及旧版升级；Linux AArch64 保持经过实际发布二进制 QEMU 验收的 3.1.14。
