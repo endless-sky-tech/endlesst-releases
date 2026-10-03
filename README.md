@@ -1,16 +1,16 @@
 # Endless Terminal 下载
 
-CLI、Windows Terminal、Linux AArch64 原生服务及会员云平台均已更新至 **3.1.19**。安装包使用免费的公开 GitHub Releases 渠道，历史版本保留。
+CLI 与 Windows Terminal 已配套更新至 **3.1.20**；Linux AArch64 原生服务和会员云平台维持 3.1.19。安装包使用免费的公开 GitHub Releases 渠道，历史版本保留。
 
 | 目标 | 下载 |
 |---|---|
-| Windows x64 便携版 | [Endless Terminal 3.1.19](https://github.com/endless-sky-tech/endlesst-releases/releases/download/v3.1.19/Endless.Terminal-Portable-3.1.19-x64.exe) |
+| Windows x64 便携版 | [Endless Terminal 3.1.20](https://github.com/endless-sky-tech/endlesst-releases/releases/download/v3.1.20/Endless.Terminal-Portable-3.1.20-x64.exe) |
 | Linux AArch64 原生服务 | [3.1.19 压缩包](https://github.com/endless-sky-tech/endlesst-releases/releases/download/v3.1.19/endlesst-terminal-3.1.19-linux-aarch64.tar.gz) |
-| CLI 通用 npm 包（Node.js 22+） | [3.1.19 tarball](https://github.com/endless-sky-tech/endlesst-releases/releases/download/v3.1.19/endlesst-cli-3.1.19.tgz) |
+| CLI 通用 npm 包（Node.js 22+） | [3.1.20 tarball](https://github.com/endless-sky-tech/endlesst-releases/releases/download/v3.1.20/endlesst-cli-3.1.20.tgz) |
 
-[全部正式附件与 SHA-256 校验](https://github.com/endless-sky-tech/endlesst-releases/releases/tag/v3.1.19)。CLI 使用最新发行版的 `latest.json`，Windows 使用 `terminal.json`。
+[本次 CLI / Windows 附件与 SHA-256 校验](https://github.com/endless-sky-tech/endlesst-releases/releases/tag/v3.1.20)。CLI 使用最新发行版的 `latest.json`，Windows 使用 `terminal.json`。
 
-本版采用 Hub 协议 6，**CLI 和 Terminal 都需要升级到 3.1.19**。平台已同步更新，旧客户端不能连接新协议。
+Hub 协议保持 6，本次不部署云平台。共享会话需 CLI 与桌面 Terminal 配套升级至 3.1.20；原生服务不提供桌面专属的 `session list/attach`。Ubuntu 桌面仍为预览，本次不发布 Linux 桌面安装包。
 
 ## 开始使用
 
@@ -40,7 +40,7 @@ Linux / macOS：
 curl -fsSL https://github.com/endless-sky-tech/endlesst-releases/releases/latest/download/install.sh | sh
 ```
 
-已有 CLI：
+已有 CLI（使用自定义 prefix 的 3.1.19 或更早版本，请先用新版安装器传入原 prefix 升级；3.1.20 的 update 保留原安装目录）：
 
 ```sh
 endlesst-cli update
@@ -60,4 +60,4 @@ irm https://github.com/endless-sky-tech/endlesst-releases/releases/latest/downlo
 
 Windows Terminal 可从程序的更新入口下载，或直接下载上方 EXE；退出旧程序后运行新版。原生 Terminal 替换程序后重启。设备身份、注册凭据、用户配置和设备访问秘钥继续沿用。
 
-本版通过 Linux / Windows 全量端到端测试、Windows 实际打包程序、AArch64 QEMU，以及真实 ECS 的注册、登录、自动加入设备、CLI 免填秘钥连接、relay / P2P、令牌刷新和客户端撤销验证。硬件测试使用夹具；正式支付仍待商户和定价就绪后另行验收。
+3.1.20 通过对应源码提交的 Linux / Windows CI、实际 Windows 便携 EXE 启动与重启验收，以及隔离安装目录中的 CLI 安装、升级、回退、失败处理、Skill 安装和卸载验收。硬件功能使用夹具；此次未重新验收 ECS 或 AArch64 真机。签名、独立 CLI 可执行文件与 Linux 正式桌面发行仍为后续项。
