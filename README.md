@@ -1,16 +1,17 @@
 # Endless Terminal 下载
 
-CLI 与 Windows Terminal 已配套更新至 **3.1.20**；Linux AArch64 原生服务和会员云平台维持 3.1.19。安装包使用免费的公开 GitHub Releases 渠道，历史版本保留。
+CLI 已更新至 **3.1.21**，提供 Linux x64 和 Windows x64 独立可执行文件，用户无需 Node.js/npm。Windows Terminal 维持 3.1.20；Linux AArch64 原生服务和会员云平台维持 3.1.19。安装包使用免费的公开 GitHub Releases 渠道，历史版本保留。
 
 | 目标 | 下载 |
 |---|---|
 | Windows x64 便携版 | [Endless Terminal 3.1.20](https://github.com/endless-sky-tech/endlesst-releases/releases/download/v3.1.20/Endless.Terminal-Portable-3.1.20-x64.exe) |
 | Linux AArch64 原生服务 | [3.1.19 压缩包](https://github.com/endless-sky-tech/endlesst-releases/releases/download/v3.1.19/endlesst-terminal-3.1.19-linux-aarch64.tar.gz) |
-| CLI 通用 npm 包（Node.js 22+） | [3.1.20 tarball](https://github.com/endless-sky-tech/endlesst-releases/releases/download/v3.1.20/endlesst-cli-3.1.20.tgz) |
+| CLI Linux x64（glibc） | [3.1.21 tar.gz](https://github.com/endless-sky-tech/endlesst-releases/releases/download/v3.1.21/endlesst-cli-3.1.21-linux-x64.tar.gz) |
+| CLI Windows x64 | [3.1.21 ZIP](https://github.com/endless-sky-tech/endlesst-releases/releases/download/v3.1.21/endlesst-cli-3.1.21-windows-x64.zip) |
 
-[本次 CLI / Windows 附件与 SHA-256 校验](https://github.com/endless-sky-tech/endlesst-releases/releases/tag/v3.1.20)。CLI 使用最新发行版的 `latest.json`，Windows 使用 `terminal.json`。
+[本次 CLI 附件与 SHA-256 校验](https://github.com/endless-sky-tech/endlesst-releases/releases/tag/v3.1.21)。CLI 使用最新发行版的 `latest.json`，Windows 使用 `terminal.json`。
 
-Hub 协议保持 6，本次不部署云平台。共享会话需 CLI 与桌面 Terminal 配套升级至 3.1.20；原生服务不提供桌面专属的 `session list/attach`。Ubuntu 桌面仍为预览，本次不发布 Linux 桌面安装包。
+Hub 协议保持 6，本次不部署云平台。共享会话需桌面 Terminal 3.1.20 或以上；原生服务不提供桌面专属的 `session list/attach`。Ubuntu 桌面仍为预览，本次不发布 Linux 桌面安装包。
 
 ## 开始使用
 
@@ -34,30 +35,34 @@ endlesst-cli doctor
 
 ## 安装与升级
 
-Linux / macOS：
+Linux x64（glibc），默认安装到 `~/.local/bin`：
 
 ```sh
 curl -fsSL https://github.com/endless-sky-tech/endlesst-releases/releases/latest/download/install.sh | sh
+export PATH="$HOME/.local/bin:$PATH"
+endlesst-cli --version
 ```
 
-已有 CLI（使用自定义 prefix 的 3.1.19 或更早版本，请先用新版安装器传入原 prefix 升级；3.1.20 的 update 保留原安装目录）：
-
-```sh
-endlesst-cli update
-```
-
-如果 CLI 提示后台进程正在运行，先执行 `endlesst-cli hub daemon stop`，再升级。升级后重新执行 `hub login` 获取本机客户端授权。旧 OSS 渠道首次升级可指定：
-
-```sh
-ENDLESST_RELEASE_BASE=https://github.com/endless-sky-tech/endlesst-releases/releases endlesst-cli update
-```
-
-Windows PowerShell：
+Windows x64 PowerShell，默认安装到 `%LOCALAPPDATA%\endlesst-cli`：
 
 ```powershell
 irm https://github.com/endless-sky-tech/endlesst-releases/releases/latest/download/install.ps1 | iex
+& "$env:LOCALAPPDATA\endlesst-cli\endlesst-cli.exe" --version
 ```
+
+也可下载上方压缩包，解压后在终端直接运行 `endlesst-cli` / `endlesst-cli.exe`。包内包含程序、摘要和许可证，运行时、P2P 原生模块及配套 Skill 均内置，不需要安装 Node.js/npm。安装器支持指定版本、目录、离线文件和保留配置的卸载：Linux 用 `--version`、`--prefix`、`--package`、`--uninstall`；Windows 对应 `-Version`、`-Prefix`、`-Package`、`-Uninstall`。
+
+旧 npm 安装需重新运行上面的新安装器；新清单不使用旧 npm 升级协议。安装器保留用户配置，发现 PATH 优先指向旧命令时会提示。请把新目录放到 PATH 前面，或使用新程序的绝对路径。已安装独立发行版后：
+
+```sh
+endlesst-cli update --check
+endlesst-cli update
+endlesst-cli update --to <已发布的独立版本>
+endlesst-cli skill install
+```
+
+升级前停止运行中的 `hub daemon`，升级后重新启动，常驻连接会使用新程序。macOS、ARM64、musl 暂未提供独立 CLI 包。
 
 Windows Terminal 可从程序的更新入口下载，或直接下载上方 EXE；退出旧程序后运行新版。原生 Terminal 替换程序后重启。设备身份、注册凭据、用户配置和设备访问秘钥继续沿用。
 
-3.1.20 通过对应源码提交的 Linux / Windows CI、实际 Windows 便携 EXE 启动与重启验收，以及隔离安装目录中的 CLI 安装、升级、回退、失败处理、Skill 安装和卸载验收。硬件功能使用夹具；此次未重新验收 ECS 或 AArch64 真机。签名、独立 CLI 可执行文件与 Linux 正式桌面发行仍为后续项。
+3.1.21 CLI 通过同一源码提交的 Linux / Windows CI，并在两种原生系统中验收实际独立可执行包：PATH 不含 Node/npm，覆盖离线与在线安装、升级与回退、失败保留原程序、P2P/relay、串口 fixture、daemon 自启动及附着、内置 Skill、卸载与配置保留。硬件使用夹具；本次不发布 Terminal 新版，不重新验收 ECS 或 AArch64 真机。Windows 签名和其他系统的独立 CLI 包仍为后续项。
