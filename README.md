@@ -1,15 +1,15 @@
 # Endless Terminal 下载
 
-CLI 已更新至 **3.1.21**，提供 Linux x64 和 Windows x64 独立可执行文件，用户无需 Node.js/npm。Windows Terminal 维持 3.1.20；Linux AArch64 原生服务和会员云平台维持 3.1.19。安装包使用免费的公开 GitHub Releases 渠道，历史版本保留。
+Windows Terminal 已更新至 **3.1.22**，修复本地 UVC 视频反复断开重连。CLI 为 **3.1.21**，提供 Linux x64 和 Windows x64 独立可执行文件，用户无需 Node.js/npm；Linux AArch64 原生服务和会员云平台维持 3.1.19。安装包使用免费的公开 GitHub Releases 渠道，历史版本保留。
 
 | 目标 | 下载 |
 |---|---|
-| Windows x64 便携版 | [Endless Terminal 3.1.20](https://github.com/endless-sky-tech/endlesst-releases/releases/download/v3.1.20/Endless.Terminal-Portable-3.1.20-x64.exe) |
+| Windows x64 便携版 | [Endless Terminal 3.1.22](https://github.com/endless-sky-tech/endlesst-releases/releases/download/v3.1.22/Endless.Terminal-Portable-3.1.22-x64.exe) |
 | Linux AArch64 原生服务 | [3.1.19 压缩包](https://github.com/endless-sky-tech/endlesst-releases/releases/download/v3.1.19/endlesst-terminal-3.1.19-linux-aarch64.tar.gz) |
 | CLI Linux x64（glibc） | [3.1.21 tar.gz](https://github.com/endless-sky-tech/endlesst-releases/releases/download/v3.1.21/endlesst-cli-3.1.21-linux-x64.tar.gz) |
 | CLI Windows x64 | [3.1.21 ZIP](https://github.com/endless-sky-tech/endlesst-releases/releases/download/v3.1.21/endlesst-cli-3.1.21-windows-x64.zip) |
 
-[本次 CLI 附件与 SHA-256 校验](https://github.com/endless-sky-tech/endlesst-releases/releases/tag/v3.1.21)。CLI 使用最新发行版的 `latest.json`，Windows 使用 `terminal.json`。
+[Windows 3.1.22 发行说明与 SHA-256](https://github.com/endless-sky-tech/endlesst-releases/releases/tag/v3.1.22) · [CLI 3.1.21 附件与 SHA-256](https://github.com/endless-sky-tech/endlesst-releases/releases/tag/v3.1.21)。CLI 使用最新发行版的 `latest.json`，Windows 使用 `terminal.json`。
 
 Hub 协议保持 6，本次不部署云平台。共享会话需桌面 Terminal 3.1.20 或以上；原生服务不提供桌面专属的 `session list/attach`。Ubuntu 桌面仍为预览，本次不发布 Linux 桌面安装包。
 
@@ -65,4 +65,4 @@ endlesst-cli skill install
 
 Windows Terminal 可从程序的更新入口下载，或直接下载上方 EXE；退出旧程序后运行新版。原生 Terminal 替换程序后重启。设备身份、注册凭据、用户配置和设备访问秘钥继续沿用。
 
-3.1.21 CLI 通过同一源码提交的 Linux / Windows CI，并在两种原生系统中验收实际独立可执行包：PATH 不含 Node/npm，覆盖离线与在线安装、升级与回退、失败保留原程序、P2P/relay、串口 fixture、daemon 自启动及附着、内置 Skill、卸载与配置保留。硬件使用夹具；本次不发布 Terminal 新版，不重新验收 ECS 或 AArch64 真机。Windows 签名和其他系统的独立 CLI 包仍为后续项。
+3.1.21 CLI 通过同一源码提交的 Linux / Windows CI，并在两种原生系统中验收实际独立可执行包：PATH 不含 Node/npm，覆盖离线与在线安装、升级与回退、失败保留原程序、P2P/relay、串口 fixture、daemon 自启动及附着、内置 Skill、卸载与配置保留。CLI 硬件使用夹具。Windows Terminal 3.1.22 通过同一源码提交的 Linux / Windows 全量 CI 和实际便携包启动退出验收；Integrated Camera 真机持续出帧、零重连，直播截图正常。本次不重新验收 ECS 或 AArch64 真机。Windows 签名和其他系统的独立 CLI 包仍为后续项。
