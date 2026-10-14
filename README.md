@@ -1,6 +1,6 @@
 # Endless 版本发布
 
-Endless 项目所有组件的统一发布渠道，包括 Terminal、CLI 和原生服务。
+Endless 项目所有组件的统一发布渠道，包括 Terminal、CLI、原生服务和 Endless IPC Yocto SDK。
 
 安装包、发行说明、SHA-256 和历史版本见 [GitHub Releases](https://github.com/endless-sky-tech/endlesst-releases/releases)。
 
@@ -8,6 +8,7 @@ Endless 项目所有组件的统一发布渠道，包括 Terminal、CLI 和原�
 
 | 目标 | 下载 |
 |---|---|
+| Endless IPC Yocto SDK | [5.0.20（2026-10-11）](https://github.com/endless-sky-tech/endlesst-releases/releases/tag/yocto-sdk-5.0.20-2026-10-11) |
 | Windows x64 便携版 | [Endless Terminal 3.1.22](https://github.com/endless-sky-tech/endlesst-releases/releases/download/v3.1.22/Endless.Terminal-Portable-3.1.22-x64.exe) |
 | Linux AArch64 原生服务 | [3.1.19 压缩包](https://github.com/endless-sky-tech/endlesst-releases/releases/download/v3.1.19/endlesst-terminal-3.1.19-linux-aarch64.tar.gz) |
 | CLI Linux x64（glibc） | [3.1.21 tar.gz](https://github.com/endless-sky-tech/endlesst-releases/releases/download/v3.1.21/endlesst-cli-3.1.21-linux-x64.tar.gz) |
