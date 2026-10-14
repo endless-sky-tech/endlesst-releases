@@ -1,4 +1,8 @@
-# Endless Terminal 下载
+# Endless 项目版本发布与下载
+
+本仓库是 Endless 项目所有版本的统一发布渠道，覆盖 Terminal、CLI、原生服务及其他项目组件。各组件的安装包、发行说明和校验信息通过公开的 [GitHub Releases](https://github.com/endless-sky-tech/endlesst-releases/releases) 发布，历史版本保留；具体发布内容以对应版本的发行说明和附件为准。
+
+## 当前发布版本
 
 Windows Terminal 已更新至 **3.1.22**，修复本地 UVC 视频反复断开重连。CLI 为 **3.1.21**，提供 Linux x64 和 Windows x64 独立可执行文件，用户无需 Node.js/npm；Linux AArch64 原生服务和会员云平台维持 3.1.19。安装包使用免费的公开 GitHub Releases 渠道，历史版本保留。
 
@@ -13,7 +17,7 @@ Windows Terminal 已更新至 **3.1.22**，修复本地 UVC 视频反复断开�
 
 Hub 协议保持 6，本次不部署云平台。共享会话需桌面 Terminal 3.1.20 或以上；原生服务不提供桌面专属的 `session list/attach`。Ubuntu 桌面仍为预览，本次不发布 Linux 桌面安装包。
 
-## 开始使用
+## Terminal 与 CLI 开始使用
 
 1. 在 [注册页](https://182.92.195.68/account/?register=1) 填写账号、密码和确认密码，在当前页面完成注册。
 2. 打开 Terminal 菜单栏的“账号”，输入账号和密码登录；当前设备自动加入账号。
@@ -33,7 +37,7 @@ endlesst-cli doctor
 
 正式支付和购买入口保持关闭，商户和价格待确定。
 
-## 安装与升级
+## Terminal 与 CLI 安装与升级
 
 Linux x64（glibc），默认安装到 `~/.local/bin`：
 
