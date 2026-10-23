@@ -1,6 +1,6 @@
 # Endless 版本发布
 
-当前为 **0.2.2 开发版**，项目尚未正式发布。开发阶段使用 0.x，正式发布从 1.0.0 开始；原 3.x 为历史构建编号。请使用 [v0.2.2 开发版](https://atomgit.com/endless-sky-tech/endlesst-releases/releases/tag/v0.2.2)，不使用仓库的全局 latest 入口。
+当前为 **0.2.2 开发版**，项目尚未正式发布。开发阶段使用 0.x，正式发布从 1.0.0 开始；原 3.x 为历史构建编号。请使用 [v0.2.2 开发版](https://atomgit.com/endless-sky-tech/endlesst-releases/releases/v0.2.2)，不使用仓库的全局 latest 入口。
 
 已安装旧版本的 CLI 请先停止 cloud daemon，再运行下面的国内安装命令；Terminal 退出后手动换用 0.2.2，配置保持。
 
@@ -12,8 +12,8 @@ Endless 项目所有组件的统一发布渠道，包括 Terminal、CLI、原生
 
 | 目标 | 下载 |
 |---|---|
-| Endless IPC Yocto SDK AArch64 | [5.0.20（2026-10-23）](https://atomgit.com/endless-sky-tech/endlesst-releases/releases/tag/yocto-sdk-5.0.20-2026-10-23) |
-| Endless IPC Yocto SDK 全平台历史版 | [5.0.20（2026-10-11）](https://atomgit.com/endless-sky-tech/endlesst-releases/releases/tag/yocto-sdk-5.0.20-2026-10-11) |
+| Endless IPC Yocto SDK AArch64 | [5.0.20（2026-10-23）](https://atomgit.com/endless-sky-tech/endlesst-releases/releases/yocto-sdk-5.0.20-2026-10-23) |
+| Endless IPC Yocto SDK 全平台历史版 | [5.0.20（2026-10-11）](https://atomgit.com/endless-sky-tech/endlesst-releases/releases/yocto-sdk-5.0.20-2026-10-11) |
 | Windows x64 便携版 | [Endless Terminal 0.2.2](https://atomgit.com/endless-sky-tech/endlesst-releases/releases/download/v0.2.2/Endless.Terminal-Portable-0.2.2-x64.exe) |
 | Linux AArch64 原生服务 | [0.2.2 压缩包](https://atomgit.com/endless-sky-tech/endlesst-releases/releases/download/v0.2.2/endlesst-terminal-0.2.2-linux-aarch64.tar.gz) |
 | CLI Linux x64（glibc） | [0.2.2 tar.gz](https://atomgit.com/endless-sky-tech/endlesst-releases/releases/download/v0.2.2/endlesst-cli-0.2.2-linux-x64.tar.gz) |
