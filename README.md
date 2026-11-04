@@ -1,8 +1,10 @@
 # Endless 版本发布
 
-Windows Terminal、Linux/Windows CLI 与 Linux AArch64 原生端当前统一为 **0.2.6 开发版**，Windows 默认下载安装版。项目处于 0.x 开发阶段，尚未正式发布；原 3.x 为历史构建编号。请使用下方对应产品的版本链接，不使用共享仓库的全局 latest 入口。
+Windows Terminal、Linux/Windows CLI 与 Linux AArch64 原生端当前统一为 **0.2.7 开发版**，Windows 默认下载安装版。项目处于 0.x 开发阶段，尚未正式发布；原 3.x 为历史构建编号。请使用下方对应产品的版本链接，不使用共享仓库的全局 latest 入口。
 
-Windows Terminal 已有便携版用户请先退出旧程序，安装一次 0.2.6 Setup；配置、设备身份与登录信息保留。之后在“帮助 → 版本更新”下载并校验新版，点击“重启并安装”完成升级。安装会停止当前连接和任务，普通退出不会自动安装。
+Windows Terminal 本版新增递归自由分屏，可继续拆分任意窗格、独立调整比例；标题栏侧栏按钮及 Ctrl+Shift+B（macOS 为 ⌘+Shift+B）可隐藏／显示会话与常用操作。
+
+Windows Terminal 已有便携版用户请先退出旧程序，安装一次 0.2.7 Setup；配置、设备身份与登录信息保留。之后在“帮助 → 版本更新”下载并校验新版，点击“重启并安装”完成升级。安装会停止当前连接和任务，普通退出不会自动安装。
 
 Endless 项目所有组件的统一发布渠道，包括 Terminal、CLI、原生服务和 Endless IPC Yocto SDK。
 
@@ -14,11 +16,11 @@ Endless 项目所有组件的统一发布渠道，包括 Terminal、CLI、原生
 |---|---|
 | Endless IPC Yocto SDK AArch64 | [5.0.20（2026-10-23）](https://atomgit.com/endless-sky-tech/endlesst-releases/releases/yocto-sdk-5.0.20-2026-10-23) |
 | Endless IPC Yocto SDK 全平台历史版 | [5.0.20（2026-10-11）](https://atomgit.com/endless-sky-tech/endlesst-releases/releases/yocto-sdk-5.0.20-2026-10-11) |
-| Windows x64 安装版（默认） | [Endless Terminal 0.2.6 Setup](https://atomgit.com/endless-sky-tech/endlesst-releases/releases/download/v0.2.6/Endless.Terminal-Setup-0.2.6-x64.exe) |
-| Windows x64 便携版（可选） | [Endless Terminal 0.2.6 Portable](https://atomgit.com/endless-sky-tech/endlesst-releases/releases/download/v0.2.6/Endless.Terminal-Portable-0.2.6-x64.exe) |
-| Linux AArch64 原生服务 | [0.2.6 压缩包](https://atomgit.com/endless-sky-tech/endlesst-releases/releases/download/v0.2.6/endlesst-terminal-0.2.6-linux-aarch64.tar.gz) |
-| CLI Linux x64（glibc） | [0.2.6 tar.gz](https://atomgit.com/endless-sky-tech/endlesst-releases/releases/download/v0.2.6/endlesst-cli-0.2.6-linux-x64.tar.gz) |
-| CLI Windows x64 | [0.2.6 ZIP](https://atomgit.com/endless-sky-tech/endlesst-releases/releases/download/v0.2.6/endlesst-cli-0.2.6-windows-x64.zip) |
+| Windows x64 安装版（默认） | [Endless Terminal 0.2.7 Setup](https://atomgit.com/endless-sky-tech/endlesst-releases/releases/download/v0.2.7/Endless.Terminal-Setup-0.2.7-x64.exe) |
+| Windows x64 便携版（可选） | [Endless Terminal 0.2.7 Portable](https://atomgit.com/endless-sky-tech/endlesst-releases/releases/download/v0.2.7/Endless.Terminal-Portable-0.2.7-x64.exe) |
+| Linux AArch64 原生服务 | [0.2.7 压缩包](https://atomgit.com/endless-sky-tech/endlesst-releases/releases/download/v0.2.7/endlesst-terminal-0.2.7-linux-aarch64.tar.gz) |
+| CLI Linux x64（glibc） | [0.2.7 tar.gz](https://atomgit.com/endless-sky-tech/endlesst-releases/releases/download/v0.2.7/endlesst-cli-0.2.7-linux-x64.tar.gz) |
+| CLI Windows x64 | [0.2.7 ZIP](https://atomgit.com/endless-sky-tech/endlesst-releases/releases/download/v0.2.7/endlesst-cli-0.2.7-windows-x64.zip) |
 
 本版本已通过同提交 Linux/Windows 源码 CI、两平台 CLI 实际可执行文件验收、Windows 原生安装与覆盖安装，以及 Linux AArch64 实际归档的 QEMU 验收。两站附件均完成匿名下载摘要校验；现场硬件仍需单独验收，当前 Windows 安装包未签名。
 
@@ -29,7 +31,7 @@ Endless 项目所有组件的统一发布渠道，包括 Terminal、CLI、原生
 Linux x64（glibc）：
 
 ```sh
-curl -fsSL https://atomgit.com/endless-sky-tech/endlesst-releases/releases/download/v0.2.6/install.sh | ENDLESST_RELEASE_BASE=https://atomgit.com/endless-sky-tech/endlesst-releases/releases sh
+curl -fsSL https://atomgit.com/endless-sky-tech/endlesst-releases/releases/download/v0.2.7/install.sh | ENDLESST_RELEASE_BASE=https://atomgit.com/endless-sky-tech/endlesst-releases/releases sh
 export PATH="$HOME/.local/bin:$PATH"
 ```
 
@@ -37,7 +39,7 @@ Windows x64（PowerShell）：
 
 ```powershell
 $env:ENDLESST_RELEASE_BASE = 'https://atomgit.com/endless-sky-tech/endlesst-releases/releases'
-irm https://atomgit.com/endless-sky-tech/endlesst-releases/releases/download/v0.2.6/install.ps1 | iex
+irm https://atomgit.com/endless-sky-tech/endlesst-releases/releases/download/v0.2.7/install.ps1 | iex
 ```
 
 0.2.3 起，CLI 的 `endlesst-cli update` 与 Windows Terminal 内置更新默认优先 AtomGit，网络故障时回退 GitHub。历史版本可重新运行本页对应平台的安装命令。运行中的 `cloud daemon` 需在升级前停止，升级后重启。
